@@ -1,0 +1,40 @@
+name: absa
+
+channels:
+  - pytorch
+  - huggingface
+  - conda-forge
+  - defaults
+
+dependencies:
+  # NÂNG CẤP LÊN PYTHON 3.11 
+  - python=3.11
+
+  # PyTorch
+  - pytorch::pytorch
+
+  # HuggingFace (Nới lỏng version để tránh xung đột hệ thống)
+  - conda-forge::transformers>=4.40.0
+  - conda-forge::tokenizers>=0.22.0
+  - conda-forge::datasets>=3.0.0
+  - conda-forge::sentencepiece
+  - conda-forge::huggingface_hub
+
+  # ML
+  - conda-forge::scikit-learn
+  - conda-forge::numpy>=1.26.0
+
+  # Config
+  - conda-forge::omegaconf
+
+  # Visualization
+  - conda-forge::matplotlib
+  - conda-forge::seaborn
+
+  # Notebook
+  - conda-forge::jupyter
+  - conda-forge::ipywidgets
+
+  # pip-only
+  - pip:
+    - protobuf==3.20.3

@@ -216,3 +216,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project specific ignores
+.DS_Store
+"Báo cáo môn học.pdf"
+Báo cáo môn học.pdf
+outputs/
+data/processed/
+pretrained_models/

@@ -1,0 +1,14 @@
+torch>=2.1.0
+transformers>=4.40.0
+tokenizers>=0.22.0
+datasets>=3.0.0
+sentencepiece
+huggingface_hub
+scikit-learn
+numpy>=1.26.0
+omegaconf
+matplotlib
+seaborn
+tqdm
+pandas
+scipypyyaml

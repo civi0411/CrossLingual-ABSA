@@ -1,0 +1,76 @@
+# =============================================================================
+# Cross-lingual ABSA: Global Configuration
+# Contains all hyper-parameters and system paths.
+# =============================================================================
+
+# Data
+data:
+  processed_dir: "data/processed"
+  max_len:
+    restaurant: 128
+    phone: 160
+  min_tokens: 3
+  valid_categories_from: "en_train"   # always use EN train to derive categories
+
+# Models paths (downloaded by scripts/download_models.py)
+model_paths:
+  mbert: "pretrained_models/mbert"
+  xlmr:  "pretrained_models/xlmr"
+  mt5:   "pretrained_models/mt5"
+
+# Training hyperparameters
+training:
+  # Common
+  batch_size: 16
+  epochs: 20
+  early_stopping_patience: 5
+  grad_clip: 1.0
+  use_amp: true                     # mixed precision (only on GPU)
+  label_smoothing: 0.1
+
+  # AG-CAN specific
+  ag_can:
+    lr: 1.0e-3
+    head_lr: 1.0e-3
+    encoder_lr: 2.0e-5
+    unfreeze_last_n: 4
+    weight_decay: 0.01
+    hidden_dim: 256
+    num_heads: 8
+    dropout: 0.3
+
+  # XLM-R specific (LLRD)
+  xlmr:
+    lr_embeddings: 1.0e-5
+    lr_encoder_low: 1.5e-5
+    lr_encoder_high: 2.0e-5
+    lr_classifier: 3.0e-5
+    weight_decay: 0.01
+    warmup_ratio: 0.1
+
+  # mT5 specific
+  mt5:
+    lr: 3.0e-4
+    weight_decay: 0.01
+    warmup_ratio: 0.1
+    max_target_len: 5
+    label_smoothing: 0.1
+    eval_method: "label_scoring"
+    constrained_decoding: true
+
+# Experiment settings
+experiment:
+  seeds: [42, 123]
+  few_shot_n: [50, 100, 200]
+
+# Evaluation
+evaluation:
+  results_dir: "outputs/results"
+  errors_dir: "outputs/errors"
+  plots_dir: "outputs/plots"
+  min_test_samples_per_category: 5
+
+# Logging
+logging:
+  level: "INFO"
+  file: "outputs/logs/experiment.log"
