@@ -7,13 +7,13 @@ channels:
   - defaults
 
 dependencies:
-  # NÂNG CẤP LÊN PYTHON 3.11 
+  # Upgrade to Python 3.11
   - python=3.11
 
   # PyTorch
   - pytorch::pytorch
 
-  # HuggingFace (Nới lỏng version để tránh xung đột hệ thống)
+  # HuggingFace (Relaxed versions to avoid system conflicts)
   - conda-forge::transformers>=4.40.0
   - conda-forge::tokenizers>=0.22.0
   - conda-forge::datasets>=3.0.0

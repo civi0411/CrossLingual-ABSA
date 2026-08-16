@@ -11,4 +11,5 @@ matplotlib
 seaborn
 tqdm
 pandas
-scipypyyaml
+scipy
+pyyaml
